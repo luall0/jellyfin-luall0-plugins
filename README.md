@@ -13,7 +13,7 @@ To add this repository to your Jellyfin instance:
 5. Paste this URL:
 
 ```
-https://raw.githubusercontent.com/luall0/jellyfin-luall0-plugins/main/manifest.json
+https://raw.githubusercontent.com/luall0/jellyfin-luall0-plugins/refs/heads/main/manifest.json
 ```
 
 6. Click **Save**
