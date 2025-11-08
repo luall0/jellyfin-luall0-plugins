@@ -9,6 +9,14 @@
     "imageUrl": "https://raw.githubusercontent.com/luall0/jellynext/main/images/jellynext_logo_full.png",
     "versions": [
       {
+        "checksum": "8ed82e10a9047bf2ac3eae416a60ea4d",
+        "changelog": "\n### Bug Fixes\n\n- **Configuration Save Error**: Fix  when saving configuration with trending movies disabled\n  -  is now only included in configuration POST when trending is enabled and a valid user is selected\n  - Prevents empty string from being parsed as GUID when trending movies is not configured",
+        "targetAbi": "10.11.0",
+        "sourceUrl": "https://github.com/luall0/jellynext/releases/download/v1.1.0.1/jellynext-v1.1.0.1.zip",
+        "timestamp": "2025-11-08 13:09:33",
+        "version": "1.1.0.1"
+      },
+      {
         "checksum": "863e68bd52de1ebfc4a63e9fa5c52224",
         "changelog": "\n### Features\n\n- **Trending Movies (Global)**: Added global trending movies feature visible to all users\n  - New global content type: \n  - Non-personalized trending movies from Trakt\n  - Configurable via Dashboard → Plugins → JellyNext → Trending Movies (Global)\n  - Settings:\n    - Enable/disable toggle\n    - Source user selection (which Trakt account to use for API access)\n    - Limit: 1-100 movies (default: 50)\n  - Virtual library path: \n  - Directory automatically created on plugin startup when enabled\n  - Supports same one-click Radarr download functionality as per-user recommendations\n\n### Improvements\n\n- **Global Content Architecture**: Extended virtual library system to support both per-user and global content types\n  - New helper method:  to distinguish content types\n  -  now handles both per-user () and global () paths\n  - Automatic directory initialization for global content types\n  - Setup instructions now include global libraries when enabled\n- **Trakt API**: Added  method to fetch trending movies with configurable limits\n- **New Provider**:  implements  for modular trending movies support\n- **Documentation**: Updated CLAUDE.md and README.md with global content architecture and trending movies feature",
         "targetAbi": "10.11.0",
