@@ -68,7 +68,7 @@ NEW_VERSION=$(jq -n \
     sourceUrl: $sourceUrl,
     timestamp: $timestamp,
     version: $version
-  }')
+  }' | jq '.changelog |= gsub("\\\\n"; "\n")')
 
 # Update manifest: add new version at the beginning of the versions array
 jq --arg guid "$GUID" \
