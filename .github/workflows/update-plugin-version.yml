@@ -1,0 +1,31 @@
+name: Update Plugin Version
+
+on:
+  repository_dispatch:
+    types: [external_trigger]
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update manifest
+        run: |
+          bash scripts/update_version.sh \
+            --guid "${{ github.event.client_payload.guid }}" \
+            --checksum "${{ github.event.client_payload.checksum }}" \
+            --changelog "${{ github.event.client_payload.changelog }}" \
+            --target-abi "${{ github.event.client_payload.targetAbi }}" \
+            --source-url "${{ github.event.client_payload.sourceUrl }}" \
+            --version "${{ github.event.client_payload.version }}"
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add manifest.json
+          git diff --staged --quiet || git commit -m "Update plugin version: ${{ github.event.client_payload.guid }} to ${{ github.event.client_payload.version }}"
+          git push

@@ -1,0 +1,55 @@
+name: Add New Plugin
+
+on:
+  workflow_dispatch:
+    inputs:
+      category:
+        description: 'Plugin category'
+        required: true
+        type: string
+      guid:
+        description: 'Plugin GUID'
+        required: true
+        type: string
+      name:
+        description: 'Plugin name'
+        required: true
+        type: string
+      description:
+        description: 'Plugin description'
+        required: true
+        type: string
+      owner:
+        description: 'Plugin owner'
+        required: true
+        type: string
+      overview:
+        description: 'Plugin overview'
+        required: true
+        type: string
+
+jobs:
+  add-plugin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add new plugin
+        run: |
+          bash scripts/add_plugin.sh \
+            --category "${{ github.event.inputs.category }}" \
+            --guid "${{ github.event.inputs.guid }}" \
+            --name "${{ github.event.inputs.name }}" \
+            --description "${{ github.event.inputs.description }}" \
+            --owner "${{ github.event.inputs.owner }}" \
+            --overview "${{ github.event.inputs.overview }}"
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add manifest.json
+          git diff --staged --quiet || git commit -m "Add new plugin: ${{ github.event.inputs.name }} (${{ github.event.inputs.guid }})"
+          git push
