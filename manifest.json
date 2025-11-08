@@ -9,6 +9,14 @@
     "imageUrl": "https://raw.githubusercontent.com/luall0/jellynext/main/images/jellynext_logo_full.png",
     "versions": [
       {
+        "checksum": "863e68bd52de1ebfc4a63e9fa5c52224",
+        "changelog": "\n### Features\n\n- **Trending Movies (Global)**: Added global trending movies feature visible to all users\n  - New global content type: \n  - Non-personalized trending movies from Trakt\n  - Configurable via Dashboard → Plugins → JellyNext → Trending Movies (Global)\n  - Settings:\n    - Enable/disable toggle\n    - Source user selection (which Trakt account to use for API access)\n    - Limit: 1-100 movies (default: 50)\n  - Virtual library path: \n  - Directory automatically created on plugin startup when enabled\n  - Supports same one-click Radarr download functionality as per-user recommendations\n\n### Improvements\n\n- **Global Content Architecture**: Extended virtual library system to support both per-user and global content types\n  - New helper method:  to distinguish content types\n  -  now handles both per-user () and global () paths\n  - Automatic directory initialization for global content types\n  - Setup instructions now include global libraries when enabled\n- **Trakt API**: Added  method to fetch trending movies with configurable limits\n- **New Provider**:  implements  for modular trending movies support\n- **Documentation**: Updated CLAUDE.md and README.md with global content architecture and trending movies feature",
+        "targetAbi": "10.11.0",
+        "sourceUrl": "https://github.com/luall0/jellynext/releases/download/v1.1.0.0/jellynext-v1.1.0.0.zip",
+        "timestamp": "2025-11-08 07:54:50",
+        "version": "1.1.0.0"
+      },
+      {
         "checksum": "dcf4e1d542362b12631539d1f58426ad",
         "changelog": "\n### Features\n\n- **Per-User Recommendation Limits**: Added configurable limits for movie and show recommendations (1-100, default: 50)\n  - New settings:  and  in per-user configuration\n  - Configurable via Dashboard → Plugins → JellyNext → User Settings\n  - Validated on both client and server with  to enforce 1-100 range\n  - Each user can control how many recommendations they want to fetch",
         "targetAbi": "10.11.0",
