@@ -27,6 +27,10 @@ on:
         description: 'Plugin overview'
         required: true
         type: string
+      imageUrl:
+        description: 'Plugin image URL (optional)'
+        required: false
+        type: string
 
 jobs:
   add-plugin:
@@ -38,13 +42,24 @@ jobs:
 
       - name: Add new plugin
         run: |
-          bash scripts/add_plugin.sh \
-            --category "${{ github.event.inputs.category }}" \
-            --guid "${{ github.event.inputs.guid }}" \
-            --name "${{ github.event.inputs.name }}" \
-            --description "${{ github.event.inputs.description }}" \
-            --owner "${{ github.event.inputs.owner }}" \
-            --overview "${{ github.event.inputs.overview }}"
+          if [[ -n "${{ github.event.inputs.imageUrl }}" ]]; then
+            bash scripts/add_plugin.sh \
+              --category "${{ github.event.inputs.category }}" \
+              --guid "${{ github.event.inputs.guid }}" \
+              --name "${{ github.event.inputs.name }}" \
+              --description "${{ github.event.inputs.description }}" \
+              --owner "${{ github.event.inputs.owner }}" \
+              --overview "${{ github.event.inputs.overview }}" \
+              --image-url "${{ github.event.inputs.imageUrl }}"
+          else
+            bash scripts/add_plugin.sh \
+              --category "${{ github.event.inputs.category }}" \
+              --guid "${{ github.event.inputs.guid }}" \
+              --name "${{ github.event.inputs.name }}" \
+              --description "${{ github.event.inputs.description }}" \
+              --owner "${{ github.event.inputs.owner }}" \
+              --overview "${{ github.event.inputs.overview }}"
+          fi
 
       - name: Commit and push changes
         run: |
