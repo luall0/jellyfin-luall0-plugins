@@ -9,6 +9,14 @@
     "imageUrl": "https://raw.githubusercontent.com/luall0/jellynext/main/images/jellynext_logo_full.png",
     "versions": [
       {
+        "checksum": "cf5317a20bf3a44a2ae8c9b2a75cc449",
+        "changelog": "\n### Features\n\n- **Configurable Playback Stop Delay**: Added setting to configure delay before stopping playback of virtual items (default: 2 seconds, range: 0-30)\n  - Allows users to adjust timing for clients that need more initialization time\n  - Configurable via Dashboard → Plugins → JellyNext → Playback Settings\n\n### Improvements\n\n- **Reduced Default Playback Delay**: Changed default playback stop delay from 5 seconds to 2 seconds for faster user experience\n- **Enhanced Documentation**: Added comprehensive \"Playback Stop Behavior\" section to README explaining:\n  - How automatic playback stop works\n  - Client compatibility information\n  - Instructions for clients that don't support automatic stop\n  - Clarification that download triggers immediately regardless of stop behavior",
+        "targetAbi": "10.11.0",
+        "sourceUrl": "https://github.com/luall0/jellynext/releases/download/v1.0.1.0/jellynext-v1.0.1.0.zip",
+        "timestamp": "2025-11-08 05:47:12",
+        "version": "1.0.1.0"
+      },
+      {
         "checksum": "07af99c67789620fc1667b88018fb986",
         "changelog": "\n### Bug Fixes\n\n- **Sonarr Integration**: Fix series monitoring update failure caused by missing  field in API requests",
         "targetAbi": "10.11.0",
