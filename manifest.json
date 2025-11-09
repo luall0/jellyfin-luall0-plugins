@@ -9,6 +9,14 @@
     "imageUrl": "https://raw.githubusercontent.com/luall0/jellynext/main/images/jellynext_logo_full.png",
     "versions": [
       {
+        "checksum": "b1ed961e237a13848a89dad9deedb110",
+        "changelog": "\n### Bug Fixes\n\n- **Jellyfin 10.11.0 Compatibility**: Pin SDK to exact version 10.11.0 to ensure compatibility across all 10.11.x releases\n  - Changed  and  dependencies from  to \n  - Fixes  on Jellyfin servers running 10.11.0 and 10.11.1\n  - Plugin now works on Jellyfin 10.11.0+",
+        "targetAbi": "10.11.0",
+        "sourceUrl": "https://github.com/luall0/jellynext/releases/download/v1.1.0.3/jellynext-v1.1.0.3.zip",
+        "timestamp": "2025-11-09 05:10:51",
+        "version": "1.1.0.3"
+      },
+      {
         "checksum": "1d02da645b835828d6ded3bf902e0cc3",
         "changelog": "\n### Documentation\n\n- **Enhanced Setup Instructions**: Added detailed virtual library path discovery instructions\n  - Included example log output showing exact paths for each content type\n  - Clarified Docker path usage ()\n  - Added step-by-step guide for finding jellynext-virtual directory via Jellyfin logs after Trakt user configuration\n  - Improved user experience for first-time setup",
         "targetAbi": "10.11.0",
