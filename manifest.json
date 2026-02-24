@@ -9,6 +9,14 @@
     "imageUrl": "https://raw.githubusercontent.com/luall0/jellynext/main/images/jellynext_logo_full.png",
     "versions": [
       {
+        "checksum": "f3851df3a221c623479fa1c5af4fab76",
+        "changelog": "\n### Features\n\n- **Watchlist Sync**: Automatically add Trakt watchlisted items to download systems (Radarr/Sonarr/Jellyseerr)\n  - New per-user settings:  and  toggles in Trakt user configuration\n  - Fetches movies via  and shows via  with  for genre metadata\n  - Filters out items already in local Jellyfin library and previously processed items\n  - Routes downloads through existing  (supports Native, Jellyseerr, and Webhook modes)\n  - Shows default to Season 1 download (Trakt watchlist doesn't specify seasons)\n  - 1-second throttle between downloads to avoid overwhelming download systems\n  - Individual item failures logged without stopping the sync process\n\n- **Watchlist Sync Scheduled Task**: Background task running every 1 hour\n  - More frequent than content sync (6hr) to respond quickly to watchlist changes\n  - Also triggered on startup via \n\n### Improvements\n\n- **State Tracking**: Persistent tracking of processed watchlist items to prevent re-adding\n  -  (TMDB IDs) and  (TVDB IDs) persisted in configuration\n  - Reset manually by clearing IDs from config to re-trigger downloads\n\n- **Local Library Deduplication**: New  method in  to check movie existence by TMDB ID (excludes virtual items)\n\n- **Trakt API**: New watchlist endpoints\n  - : Fetch user's movie watchlist\n  - : Fetch user's show watchlist\n\n- **Configuration UI**: Added watchlist sync toggles to Trakt user settings tab\n\n### Acknowledgments\n\n- Thanks to [@medallyon](https://github.com/medallyon) for implementing the watchlist sync feature",
+        "targetAbi": "10.11.0",
+        "sourceUrl": "https://github.com/luall0/jellynext/releases/download/v1.3.0.0/jellynext-v1.3.0.0.zip",
+        "timestamp": "2026-02-24 14:39:39",
+        "version": "1.3.0.0"
+      },
+      {
         "checksum": "acf4da864123b6910995f13597cdc1f5",
         "changelog": "\n### Bug Fixes\n\n- **Trending movies downloads**: Fixed download failure when playing trending movies\n  - PlaybackInterceptor now correctly handles global content paths ()\n  - Detects global content types and uses configured  for cache lookup\n  - Previously failed because path parsing expected per-user GUID, not \"global\" keyword",
         "targetAbi": "10.11.0",
